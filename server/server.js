@@ -7,7 +7,13 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://chat-with-me-xycl.vercel.app/",
+    methods: ["PUT", "DELETE", "GET", "POST"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 mongoose
